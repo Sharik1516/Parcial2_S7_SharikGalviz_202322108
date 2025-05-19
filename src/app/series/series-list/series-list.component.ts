@@ -16,18 +16,6 @@ export class SeriesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.series = this.seriesService.getSeries();
-    this.averageSeasons = this.getAverageSeasons();
-  }
-
-  getAverageSeasons(): number {
-    const total = this.series.reduce((sum, serie) => sum + serie.seasons, 0);
-    return total / this.series.length;
-  }
-
-  selectedSerie: Serie | null = null;
-
-  selectSerie(serie: Serie) {
-    this.selectedSerie = serie;
   }
 
 }

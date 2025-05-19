@@ -1,42 +1,11 @@
-<nav class="navbar navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">
-  <img src="https://png.pngtree.com/png-clipart/20220530/original/pngtree-tv-14-black-and-white-sign-png-image_7761393.png" width="30" height="30" alt="">
-  <span class="navbar-brand mb-0 h1">TV Series</span>
-  </a>
-</nav>
-<div class="row">
-  <div class="col-8">
-  <table class="table table-striped">
-    <thead class="table-dark">
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Channel</th>
-        <th>Seasons</th>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+      <tr *ngFor="let serie of series">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{serie.airlineName}}</h5>
+            </div>
+          </div>
+        </div>
       </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let serie of series"(click)="selectSerie(serie)" style="cursor: pointer">
-        <td>{{ serie.id }}</td>
-        <td>{{ serie.name }}</td>
-        <td>{{ serie.channel }}</td>
-        <td>{{ serie.seasons }}</td>
-      </tr>
-    </tbody>
-  </table>
-  <p class="text-end fw-bold">
-    Promedio de temporadas: {{ averageSeasons | number:'1.1-1' }}
-  </p>
-  </div>
-  <div class="col-4" *ngIf="selectedSerie">
-    <div class="card">
-      <img [src]="selectedSerie.cover" class="card-img-top" alt="{{ selectedSerie.name }}">
-    <div class="card-body">
-      <h5 class="card-title">{{ selectedSerie.name }}</h5>
-      <p class="card-text">
-        {{ selectedSerie.description }}
-      </p>
-      </div>
-    </div>
-  </div>
 </div>
